@@ -27,11 +27,12 @@ fun OnboardingScreen(navController: NavHostController) {
         modifier = Modifier
             .fillMaxSize()
             .padding(20.dp)
+            .imePadding()
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
 
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height(100.dp))
 
         // 🌿 ICON
         Text(
