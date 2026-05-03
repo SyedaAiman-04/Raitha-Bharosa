@@ -289,7 +289,7 @@ fun DashboardScreen(navController: NavHostController) {
             title = "Raitha Assist",
             subtitle = "Ask farming questions",
             icon = "🤖",
-            onClick = { }
+            onClick = { navController.navigate("assist") }
         )
 
         FeatureItem(

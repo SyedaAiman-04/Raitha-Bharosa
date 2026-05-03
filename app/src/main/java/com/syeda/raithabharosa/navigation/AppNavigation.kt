@@ -6,7 +6,7 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.*
 import androidx.compose.foundation.layout.padding
-
+import com.syeda.raithabharosa.ui.screens.RaithaAssistScreen
 import com.syeda.raithabharosa.ui.screens.*
 
 
@@ -69,6 +69,9 @@ fun AppNavigation() {
             startDestination = "onboarding",
             modifier = Modifier.padding(innerPadding)
         ) {
+            composable("assist") {
+                RaithaAssistScreen(navController)
+            }
 
             composable("onboarding") {
                 OnboardingScreen(navController)
@@ -107,10 +110,6 @@ fun AppNavigation() {
 
             composable("calendar") {
                 Text("Calendar Screen")
-            }
-
-            composable("assist") {
-                Text("Raitha Assist Screen")
             }
 
             composable("profile") {
