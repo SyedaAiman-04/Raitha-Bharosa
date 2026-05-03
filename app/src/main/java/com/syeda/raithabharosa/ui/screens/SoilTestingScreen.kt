@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun SoilTestingScreen(navController: NavHostController) {
@@ -65,7 +66,10 @@ fun SoilTestingScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         // 📸 CAMERA CARD
-        Card(modifier = Modifier.fillMaxWidth()) {
+        Card(modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = Color.White   // 👈 THIS FIXES GREY
+            )) {
             Column(
                 modifier = Modifier.padding(20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -154,7 +158,10 @@ fun SoilTestingScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(24.dp))
 
         // 🟤 UPDATE SOIL DATA CARD (MANUAL OVERRIDE)
-        Card(modifier = Modifier.fillMaxWidth()) {
+        Card(modifier = Modifier.fillMaxWidth(),
+            colors = CardDefaults.cardColors(
+                containerColor = Color.White   // 👈 THIS FIXES GREY
+            )) {
             Column(modifier = Modifier.padding(20.dp)) {
 
                 Text("Update Soil Data")
