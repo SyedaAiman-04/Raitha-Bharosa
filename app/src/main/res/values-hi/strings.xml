@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_title">मौसम डैशबोर्ड</string>
+    <string name="enter_city">शहर दर्ज करें</string>
+    <string name="get_weather">मौसम देखें</string>
+    <string name="city_label">शहर</string>
+    <string name="feels_like">महसूस तापमान</string>
+    <string name="humidity">नमी</string>
+    <string name="select_language">अपनी भाषा चुनें</string>
+    <string name="continue_btn">आगे बढ़ें</string>
+</resources>

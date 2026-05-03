@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_title">ಹವಾಮಾನ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</string>
+    <string name="enter_city">ನಗರವನ್ನು ನಮೂದಿಸಿ</string>
+    <string name="get_weather">ಹವಾಮಾನ ಪಡೆಯಿರಿ</string>
+    <string name="city_label">ನಗರ</string>
+    <string name="feels_like">ಅನಿಸುವ ತಾಪಮಾನ</string>
+    <string name="humidity">ಆದ್ರತೆ</string>
+    <string name="select_language">ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="continue_btn">ಮುಂದುವರಿಸಿ</string>
+</resources>
