@@ -21,6 +21,7 @@ import com.syeda.raithabharosa.ui.components.TaskSection
 import com.syeda.raithabharosa.ui.models.CalendarTask
 import java.time.LocalDate
 import java.time.YearMonth
+import com.syeda.raithabharosa.ui.components.AddTaskDialog
 
 @Composable
 fun KrishiCalendarScreen(navController: NavHostController) {
@@ -32,7 +33,9 @@ fun KrishiCalendarScreen(navController: NavHostController) {
     var selectedDate by remember {
         mutableStateOf(LocalDate.now())
     }
-
+    var showDialog by remember {
+        mutableStateOf(false)
+    }
     // 🔥 Dummy tasks
     val allTasks = listOf(
         CalendarTask(
@@ -79,7 +82,7 @@ fun KrishiCalendarScreen(navController: NavHostController) {
 
             FloatingActionButton(
                 onClick = {
-                    // popup later
+                    showDialog = true
                 },
                 containerColor = Color(0xFF10B15A)
             ) {
@@ -149,5 +152,13 @@ fun KrishiCalendarScreen(navController: NavHostController) {
         )
 
         Spacer(modifier = Modifier.height(120.dp))
+    }
+    if (showDialog) {
+
+        AddTaskDialog(
+            onDismiss = {
+                showDialog = false
+            }
+        )
     }
 }
