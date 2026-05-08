@@ -4,15 +4,18 @@ import android.content.Context
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.syeda.raithabharosa.utils.GeminiApi
 
 // 📌 Chat message model
 data class ChatMessage(
@@ -26,15 +29,14 @@ fun RaithaAssistScreen(navController: NavHostController) {
     val context = LocalContext.current
     val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
 
-    // ✅ FIX: Make name non-null
     val name = prefs.getString("name", "Farmer") ?: "Farmer"
 
     var message by remember { mutableStateOf("") }
-
-    // ✅ FIX: Use mutableStateList (better for Compose)
     val messages = remember { mutableStateListOf<ChatMessage>() }
 
-    // 🔥 Greeting only once
+    val listState = rememberLazyListState()
+
+    // 🔥 Initial greeting
     LaunchedEffect(Unit) {
         messages.add(
             ChatMessage(
@@ -42,6 +44,13 @@ fun RaithaAssistScreen(navController: NavHostController) {
                 false
             )
         )
+    }
+
+    // 🔥 Auto scroll
+    LaunchedEffect(messages.size) {
+        if (messages.isNotEmpty()) {
+            listState.animateScrollToItem(messages.size - 1)
+        }
     }
 
     Column(
@@ -66,13 +75,37 @@ fun RaithaAssistScreen(navController: NavHostController) {
                 .fillMaxWidth()
         ) {
             LazyColumn(
+                state = listState,
                 modifier = Modifier.padding(12.dp)
             ) {
                 items(messages) { msg ->
-                    Text(
-                        text = msg.text,
-                        modifier = Modifier.padding(6.dp)
-                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = if (msg.isUser)
+                            Arrangement.End
+                        else
+                            Arrangement.Start
+                    ) {
+                        Card(
+                            colors = CardDefaults.cardColors(
+                                containerColor = if (msg.isUser)
+                                    MaterialTheme.colorScheme.primary
+                                else
+                                    Color(0xFFDFF5E1) // 🌿 Light green AI bubble
+                            ),
+                            modifier = Modifier.padding(6.dp)
+                        ) {
+                            Text(
+                                text = msg.text,
+                                modifier = Modifier.padding(10.dp),
+                                color = if (msg.isUser)
+                                    MaterialTheme.colorScheme.onPrimary
+                                else
+                                    Color.Black
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -89,21 +122,31 @@ fun RaithaAssistScreen(navController: NavHostController) {
                 value = message,
                 onValueChange = { message = it },
                 placeholder = { Text("Ask anything about farming...") },
-                modifier = Modifier.weight(1f)
+                modifier = Modifier.weight(1f),
+                singleLine = true
             )
 
             IconButton(
                 onClick = {
                     if (message.isNotBlank()) {
 
-                        // ✅ Add user message
+                        // 👨‍🌾 User message
                         messages.add(ChatMessage(message, true))
 
-                        // ✅ Fake AI response
-                        val reply = getAIResponse(message)
+                        // 🤖 Loading
+                        messages.add(ChatMessage("Thinking...", false))
 
-                        // ✅ Add AI message
-                        messages.add(ChatMessage(reply, false))
+                        // 🚀 Gemini API call
+                        GeminiApi.getResponse(message) { response ->
+
+                            // Remove "Thinking..."
+                            if (messages.isNotEmpty()) {
+                                messages.removeAt(messages.size - 1)
+                            }
+
+                            // Add AI response
+                            messages.add(ChatMessage(response, false))
+                        }
 
                         message = ""
                     }
@@ -112,15 +155,5 @@ fun RaithaAssistScreen(navController: NavHostController) {
                 Icon(Icons.Default.Send, contentDescription = "Send")
             }
         }
-    }
-}
-
-// 🤖 Simple AI logic
-fun getAIResponse(query: String): String {
-    return when {
-        query.contains("water", true) -> "Water your crops early morning."
-        query.contains("fertilizer", true) -> "Use fertilizer based on soil test."
-        query.contains("weather", true) -> "Check dashboard for weather updates."
-        else -> "I will help you with that soon."
     }
 }

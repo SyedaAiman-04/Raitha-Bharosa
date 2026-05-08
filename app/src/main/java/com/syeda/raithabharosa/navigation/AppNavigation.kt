@@ -109,7 +109,7 @@ fun AppNavigation() {
             }
 
             composable("calendar") {
-                Text("Calendar Screen")
+                KrishiCalendarScreen(navController)
             }
 
             composable("profile") {

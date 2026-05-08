@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.syeda.raithabharosa"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("org.json:json:20231013")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("androidx.compose.material3:material3:1.2.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
