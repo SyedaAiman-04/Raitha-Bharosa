@@ -5,18 +5,6 @@ Raitha Bharosa is a modern Android application designed to empower farmers with 
 
 ---
 
-## 📸 App Walkthrough
-
-| Language Selection | Login & Location | Home Dashboard |
-|---|---|---|
-| <img src="screenshots/lang_select.jpg" width="250"> | <img src="screenshots/login.jpg" width="250"> | <img src="screenshots/home.jpg" width="250"> |
-
-| Krishi Calendar | Raitha Assist (AI) | Soil Testing AI |
-|---|---|---|
-| <img src="screenshots/calendar.jpg" width="250"> | <img src="screenshots/assist.jpg" width="250"> | <img src="screenshots/soil.jpg" width="250"> |
-
----
-
 ## ✨ Key Features
 
 - **🌍 Multilingual Support**: Accessible in Kannada, Hindi, and English to ensure every farmer can use the tools in their preferred language.
