@@ -9,11 +9,17 @@ Raitha Bharosa is a modern Android application designed to empower farmers with 
 
 | Language Selection | Login & Location | Home Dashboard |
 |---|---|---|
-| <img src="screenshots/lang_select.jpg" width="250"> | <img src="screenshots/login.jpg" width="250"> | <img src="screenshots/home.jpg" width="250"> |
+|  <img width="738" height="1600" alt="WhatsApp Image 2026-05-15 at 6 13 06 PM" src="https://github.com/user-attachments/assets/4000bf97-260a-4b71-a9b5-43663adefe12" />
+ |   <img width="738" height="1600" alt="WhatsApp Image 2026-05-15 at 6 13 05 PM" src="https://github.com/user-attachments/assets/2d8442e0-8d12-4ab3-ac93-3bef237aba64" />
+ | <img width="738" height="1600" alt="WhatsApp Image 2026-05-15 at 6 13 06 PM (1)" src="https://github.com/user-attachments/assets/6a58e42e-08a6-4032-84be-49de547d1f38" />
+ |
 
 | Krishi Calendar | Raitha Assist (AI) | Soil Testing AI |
 |---|---|---|
-| <img src="screenshots/calendar.jpg" width="250"> | <img src="screenshots/assist.jpg" width="250"> | <img src="screenshots/soil.jpg" width="250"> |
+| <img width="374" height="1600" alt="WhatsApp Image 2026-05-15 at 6 13 07 PM (1)" src="https://github.com/user-attachments/assets/11f0cc06-2c3d-452a-b33f-2d421cfbf390" />
+ | <img width="738" height="1600" alt="WhatsApp Image 2026-05-15 at 6 13 07 PM" src="https://github.com/user-attachments/assets/a2394447-53f7-40ac-abe6-99bc3f4e5f8f" />
+ | <img width="738" height="1600" alt="WhatsApp Image 2026-05-15 at 6 13 06 PM (2)" src="https://github.com/user-attachments/assets/8dc7162a-a7ee-441e-829d-c4f86d123d54" />
+ |
 
 ---
 
