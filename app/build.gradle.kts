@@ -1,6 +1,10 @@
 plugins {
+
     alias(libs.plugins.android.application)
+
     alias(libs.plugins.kotlin.compose)
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -12,6 +16,11 @@ android {
     }
 
     defaultConfig {
+        buildConfigField(
+            "String",
+            "GEMINI_API_KEY",
+            "\"${project.findProperty("GEMINI_API_KEY")}\""
+        )
         applicationId = "com.syeda.raithabharosa"
         minSdk = 26
         targetSdk = 36
@@ -36,10 +45,28 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
+
+    implementation("com.google.ai.client.generativeai:generativeai:0.9.0")
+    implementation("com.google.firebase:firebase-auth-ktx:23.0.0")
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation("com.google.firebase:firebase-firestore-ktx:25.1.0")
+    // 🔥 Firebase BOM
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+
+// 🔥 Firebase Authentication
+    implementation("com.google.firebase:firebase-auth-ktx")
+
+// 🔥 Firestore Database
+    implementation("com.google.firebase:firebase-firestore-ktx")
+
+    implementation("io.coil-kt:coil-compose:2.6.0")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("org.json:json:20231013")
     implementation("androidx.compose.material:material-icons-extended")

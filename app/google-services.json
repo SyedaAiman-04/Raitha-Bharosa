@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "463364623755",
+    "project_id": "agri-dbf83",
+    "storage_bucket": "agri-dbf83.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463364623755:android:fcfc9f76ccf86c4163738e",
+        "android_client_info": {
+          "package_name": "com.syeda.raithabharosa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463364623755-q1pcrpuur4otquld03fvvjo51p7flbrl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.syeda.raithabharosa",
+            "certificate_hash": "574d9e586f75c25b6e79beaaa1e2ad0b23f7b6f1"
+          }
+        },
+        {
+          "client_id": "463364623755-vpgh8f0fq2gphs9e7k03r48k1iih45do.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqTuc-SlEuV2AfQYKlfmPoUTCfGZZPz-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463364623755-vpgh8f0fq2gphs9e7k03r48k1iih45do.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,4 +7,20 @@
     <string name="humidity">ಆದ್ರತೆ</string>
     <string name="select_language">ನಿಮ್ಮ ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="continue_btn">ಮುಂದುವರಿಸಿ</string>
+    <string name="app_name">ರೈತ ಆಪ್‌</string>
+    <string name="welcome">ರೈತ ಆಪ್‌ಗೆ ಸುಸ್ವಾಗತ</string>
+    <string name="login">ಲಾಗಿನ್</string>
+    <string name="signup">ಸೈನ್ ಅಪ್</string>
+    <string name="name">ಪೂರ್ಣ ಹೆಸರು</string>
+    <string name="email">ಇಮೇಲ್ ಐಡಿ (ಜಿಮೇಲ್)</string>
+    <string name="location">ನಿಮ್ಮ ಸ್ಥಳ</string>
+    <string name="dashboard">ಡ್ಯಾಶ್‌ಬೋರ್ಡ್</string>
+    <string name="calendar">ಕೃಷಿ ಕ್ಯಾಲೆಂಡರ್</string>
+    <string name="assistant">ರೈತ ಸಹಾಯ</string>
+    <string name="profile">ಪ್ರೊಫೈಲ್</string>
+    <string name="add_activity">ಚಟುವಟಿಕೆಯನ್ನು ಸೇರಿಸಿ</string>
+    <string name="timeline">ಸಮಯರೇಖೆ</string>
+    <string name="task_list">ಕಾರ್ಯ ಪಟ್ಟಿ</string>
+    <string name="change_language">ಭಾಷೆ ಬದಲಿಸಿ</string>
+    <string name="logout">ಸೆಷನ್ ಮುಕ್ತಾಯಗೊಳಿಸಿ</string>
 </resources>

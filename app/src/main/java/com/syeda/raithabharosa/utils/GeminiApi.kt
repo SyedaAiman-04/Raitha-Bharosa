@@ -1,89 +1,88 @@
 package com.syeda.raithabharosa.utils
 
-import android.os.Handler
-import android.os.Looper
-import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import org.json.JSONArray
-import org.json.JSONObject
-import java.io.IOException
+import com.google.ai.client.generativeai.GenerativeModel
 
 object GeminiApi {
 
-    // 🔑 Note: Ensure this key is valid and has "Generative Language API" enabled in Google AI Studio
-    private const val API_KEY = "AIzaSyAq7B_Siws8ZCqqAix_HADq5zkL5CngDz4"
+    private val generativeModel = GenerativeModel(
+        modelName = "gemini-2.5-flash-lite",
+        apiKey = "AIzaSyAK8w90pTUwOiZmjxM9n0xoLsGmr5lQ094"
+    )
 
-    private val client = OkHttpClient()
+    // 🌱 SOIL ANALYSIS
+    suspend fun analyzeSoil(prompt: String): String {
 
-    fun getResponse(prompt: String, callback: (String) -> Unit) {
-        val mainHandler = Handler(Looper.getMainLooper())
+        return try {
 
-        try {
-            // 1. Build the JSON structure exactly as required by the API
-            val json = JSONObject()
-            val content = JSONObject()
-            val partsArray = JSONArray()
-            val part = JSONObject()
+            val response = generativeModel.generateContent(
+                """
+You are an agriculture soil expert.
 
-            part.put("text", "You are an expert agriculture assistant. User question: $prompt")
-            partsArray.put(part)
-            content.put("parts", partsArray)
-            
-            val contentsArray = JSONArray()
-            contentsArray.put(content)
-            json.put("contents", contentsArray)
+Analyze the soil and return ONLY in this format:
 
-            val body = RequestBody.create(
-                "application/json".toMediaTypeOrNull(),
-                json.toString()
+SOIL_TYPE:
+<soil type>
+
+ANALYSIS:
+<analysis>
+
+CROPS:
+<comma separated crops>
+
+PROCESS:
+<process>
+
+Rules:
+- Keep analysis short
+- CROPS should be comma separated
+- PROCESS should be practical and simple
+- No markdown
+- No extra symbols
+
+Farmer Soil Data:
+$prompt
+                """.trimIndent()
             )
 
-            // 2. Switched to v1 (Stable) and ensured the URL format is correct
-            val request = Request.Builder()
-                .url("https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=$API_KEY")
-                .post(body)
-                .build()
+            response.text ?: "ERROR: Empty AI response"
 
-            client.newCall(request).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-                    mainHandler.post { callback("Network Error: ${e.message}") }
-                }
-
-                override fun onResponse(call: Call, response: Response) {
-                    val responseBody = response.body?.string() ?: ""
-
-                    if (!response.isSuccessful) {
-                        mainHandler.post {
-                            callback("API Error (${response.code}): Check if Gemini 1.5 is enabled in your AI Studio project.")
-                        }
-                        return
-                    }
-
-                    try {
-                        val jsonObject = JSONObject(responseBody)
-                        val candidates = jsonObject.optJSONArray("candidates")
-
-                        if (candidates != null && candidates.length() > 0) {
-                            val firstCandidate = candidates.getJSONObject(0)
-                            val contentObj = firstCandidate.optJSONObject("content")
-                            val partsJson = contentObj?.optJSONArray("parts")
-
-                            if (partsJson != null && partsJson.length() > 0) {
-                                val text = partsJson.getJSONObject(0).optString("text")
-                                mainHandler.post { callback(text) }
-                            } else {
-                                mainHandler.post { callback("AI response was empty or blocked.") }
-                            }
-                        } else {
-                            mainHandler.post { callback("No response from AI.") }
-                        }
-                    } catch (e: Exception) {
-                        mainHandler.post { callback("Error reading AI response.") }
-                    }
-                }
-            })
         } catch (e: Exception) {
-            mainHandler.post { callback("Request Error: ${e.message}") }
+
+            "ERROR: ${e.message}"
+        }
+    }
+
+    // 🤖 RAITHA ASSIST CHAT
+    suspend fun getResponse(prompt: String): String {
+
+        return try {
+
+            val response = generativeModel.generateContent(
+                """
+You are Raitha Assist, an intelligent agriculture AI assistant for Indian farmers.
+
+Rules:
+- Give short practical answers
+- Use simple farmer-friendly language
+- Help with:
+  • Crops
+  • Soil
+  • Irrigation
+  • Fertilizers
+  • Weather
+  • Pest control
+  • Organic farming
+
+Farmer Question:
+$prompt
+                """.trimIndent()
+            )
+
+            response.text ?: "No AI response"
+
+        } catch (e: Exception) {
+
+            "Error: ${e.message}"
         }
     }
 }

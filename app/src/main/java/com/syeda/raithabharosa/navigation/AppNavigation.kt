@@ -8,7 +8,9 @@ import androidx.navigation.compose.*
 import androidx.compose.foundation.layout.padding
 import com.syeda.raithabharosa.ui.screens.RaithaAssistScreen
 import com.syeda.raithabharosa.ui.screens.*
-
+import com.syeda.raithabharosa.ui.screens.TimelineScreen
+import com.syeda.raithabharosa.ui.screens.TaskListScreen
+import com.syeda.raithabharosa.ui.screens.ProfileScreen
 
 @Composable
 fun AppNavigation() {
@@ -113,7 +115,15 @@ fun AppNavigation() {
             }
 
             composable("profile") {
-                Text("Profile Screen")
+                ProfileScreen(navController)
+            }
+
+            composable("timeline") {
+                TimelineScreen(navController)
+            }
+
+            composable("tasklist") {
+                TaskListScreen(navController)
             }
         }
     }

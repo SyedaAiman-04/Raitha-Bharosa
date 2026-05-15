@@ -1,11 +1,33 @@
 <resources>
-    <string name="app_name" translatable="false">Raitha Bharosa</string>
+
+    <string name="app_name">Raitha Bharosa</string>
+
+    <string name="welcome">Welcome to Raitha App</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="name">Full Name</string>
+    <string name="email">Email ID (Gmail)</string>
+    <string name="location">Your Location</string>
+
+    <string name="dashboard">Dashboard</string>
+    <string name="calendar">Krishi Calendar</string>
+    <string name="assistant">Raitha Assist</string>
+    <string name="profile">Profile</string>
+
+    <string name="add_activity">Add Activity</string>
+    <string name="timeline">Timeline</string>
+    <string name="task_list">Task List</string>
+
+    <string name="change_language">Change Language</string>
+
+    <string name="logout">Terminate Session</string>
     <string name="app_title">Weather Dashboard</string>
     <string name="enter_city">Enter City</string>
     <string name="get_weather">Get Weather</string>
     <string name="city_label">City</string>
-    <string name="feels_like">Feels like</string>
+    <string name="feels_like">Feels Like</string>
     <string name="humidity">Humidity</string>
     <string name="select_language">Select Your Preferred Language</string>
     <string name="continue_btn">Continue</string>
+
 </resources>
