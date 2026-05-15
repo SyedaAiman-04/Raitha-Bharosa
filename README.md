@@ -1,49 +1,52 @@
-# Raitha Bharosa (ರೈತ ಭರವಸೆ)
+# Raitha Bharosa (ರೈತ ಭರವಸೆ) 🌾
+**Your Agricultural AI Agent**
 
-Raitha Bharosa is a comprehensive Android application designed to empower farmers by providing digital access to agricultural resources, government schemes, and AI-driven crop assistance. Built using modern Android development practices with Jetpack Compose.
+Raitha Bharosa is a modern Android application designed to empower farmers with AI-driven insights, localized weather data, and smart farming tools. Built with Jetpack Compose and powered by Google Gemini AI.
 
-## 🚀 Features
+---
 
-- **Government Scheme Tracking**: Stay updated with the latest state and central government benefits for farmers.
-- **AI Crop Doctor**: Powered by **Google Gemini AI** to help diagnose crop diseases and provide farming advice.
-- **Multilingual Support**: Supports local languages (Kannada/Telugu) for better accessibility.
-- **Task Management**: A built-in calendar and task system to manage farming activities like sowing, fertilizing, and harvesting.
-- **Firebase Integration**: Secure user authentication and real-time data storage for farmer profiles and records.
+## 📸 App Walkthrough
+
+| Language Selection | Login & Location | Home Dashboard |
+|---|---|---|
+| <img src="screenshots/lang_select.jpg" width="250"> | <img src="screenshots/login.jpg" width="250"> | <img src="screenshots/home.jpg" width="250"> |
+
+| Krishi Calendar | Raitha Assist (AI) | Soil Testing AI |
+|---|---|---|
+| <img src="screenshots/calendar.jpg" width="250"> | <img src="screenshots/assist.jpg" width="250"> | <img src="screenshots/soil.jpg" width="250"> |
+
+---
+
+## ✨ Key Features
+
+- **🌍 Multilingual Support**: Accessible in Kannada, Hindi, and English to ensure every farmer can use the tools in their preferred language.
+- **🤖 Raitha Assist (AI Chat)**: A personalized AI farming companion that answers questions about crop diseases, pest control, and best practices.
+- **📅 Krishi Calendar**: A smart task manager to plan farming activities like sowing, irrigation, and harvesting based on the season.
+- **🧪 Soil Testing AI**: Analyze soil health by uploading photos and describing visual traits. Track Nitrogen (N), Phosphorus (P), and Potassium (K) levels.
+- **🌦️ Smart Weather & Advisor**: Real-time weather updates for your specific location (e.g., Hassan) with AI-generated advice on whether conditions are good for active farming.
+- **🔐 Secure Google Auth**: Easy and secure login using Google Firebase Authentication.
+
+---
 
 ## 🛠 Tech Stack
 
-- **UI**: [Jetpack Compose](https://developer.android.com/jetpack/compose) (100% Kotlin)
-- **Architecture**: MVVM (Model-View-ViewModel)
-- **Networking**: [Retrofit](https://square.github.io/retrofit/) & OkHttp
-- **Database/Backend**: [Firebase](https://firebase.google.com/) (Auth & Firestore)
-- **AI Engine**: [Google Generative AI SDK](https://ai.google.dev/) (Gemini)
-- **Image Loading**: [Coil](https://coil-kt.github.io/coil/)
-- **Navigation**: Compose Navigation
-
-## 📸 Screenshots
-
-| Splash Screen | Dashboard | AI Assistant |
-|---|---|---|
-| *Coming Soon* | *Coming Soon* | *Coming Soon* |
-
-## 🏗 Setup Instructions
-
-To run this project locally:
-
-1. **Clone the repository**:
-2. **Firebase Setup**:
-   - Create a project on the [Firebase Console](https://console.firebase.google.com/).
-   - Download the `google-services.json` and place it in the `app/` directory.
-3. **Gemini API Key**:
-   - Get an API key from [Google AI Studio](https://aistudio.google.com/).
-   - Add your key to your local properties or secrets.
-4. **Build**:
-   - Open in Android Studio (Koala or newer).
-   - Sync Gradle and run on an emulator or physical device.
-
-## 🤝 Contributing
-
-Contributions are welcome! If you have suggestions or want to add new features, feel free to open an issue or submit a pull request.
+- **UI**: Jetpack Compose (Material 3)
+- **Language**: Kotlin
+- **Backend/Auth**: Firebase (Auth & Firestore)
+- **AI Engine**: Google Gemini AI (Generative AI SDK)
+- **Image Loading**: Coil
+- **Networking**: Retrofit & OkHttp
 
 ---
-*Developed by [Syeda Aiman](https://github.com/SyedaAiman-04)*
+
+## 🚀 How to Run
+
+1. **Clone the repo**:
+   2. **Add Configuration**:
+   - Place your `google-services.json` in the `app/` folder.
+   - Add your Gemini API Key in `local.properties`.
+3. **Build & Install**:
+   - Open in Android Studio and click **Run**.
+
+---
+**Developed with ❤️ for the farming community by [Syeda Aiman](https://github.com/SyedaAiman-04)**
